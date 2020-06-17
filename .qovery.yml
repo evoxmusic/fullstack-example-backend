@@ -1,14 +1,17 @@
 application:
-  name: node-postgresql
+  name: my-backend
   project: MyFullstackProject
   cloud_region: aws/us-east-2
 databases:
 - type: postgresql
   version: "11"
-  name: my-postgresql
+  name: my-psql-db
 routers:
-- name: main
+- name: backend-router
+  custom_domains:
+  - branch: master
+    domain: my-backend.qvy.io
   routes:
-  - application_name: node-postgresql
+  - application_name: my-backend
     paths:
     - /
